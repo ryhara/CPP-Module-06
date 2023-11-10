@@ -1,5 +1,6 @@
 NAME = a.out
-SRC = main.cpp 
+SRC = main.cpp
+SRCDIR = ./srcs/
 SRCS = $(addprefix $(SRCDIR), $(SRC))
 OBJDIR = ./obj/
 OBJS = $(addprefix $(OBJDIR), $(SRC:%.cpp=%.o))
