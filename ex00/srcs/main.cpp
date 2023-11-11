@@ -7,8 +7,7 @@ int main(int argc, char **argv)
 		std::cout << "Error: <Usage> $ ./convert number" << std::endl;
 		return (1);
 	}
-	ScalarConverter scalarConverter(argv[1]);
-	scalarConverter.convert();
+	ScalarConverter::convert(argv[1]);
 	std::cout << std::endl;
 	return (0);
 }

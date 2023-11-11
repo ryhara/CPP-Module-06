@@ -1,5 +1,5 @@
 NAME = a.out
-SRC = main.cpp
+SRC = main.cpp Serializer.cpp Data.cpp
 SRCDIR = ./srcs/
 SRCS = $(addprefix $(SRCDIR), $(SRC))
 OBJDIR = ./obj/
