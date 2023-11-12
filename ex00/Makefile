@@ -31,12 +31,12 @@ re : fclean all
 test :
 	./$(NAME) 0
 	./$(NAME) 0.0
-	./$(NAME) nan
-	./$(NAME) inf
-	./$(NAME) -inf
 	./$(NAME) 0.0f
+	./$(NAME) nan
 	./$(NAME) nanf
-	./$(NAME) inff
+	./$(NAME) +inf
+	./$(NAME) -inf
+	./$(NAME) +inff
 	./$(NAME) -inff
 	./$(NAME) 42
 	./$(NAME) -42

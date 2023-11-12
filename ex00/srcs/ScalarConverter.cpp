@@ -48,11 +48,18 @@ void ScalarConverter::convert(std::string str)
 	{
 		std::cout << "impossible" << std::endl;
 	}
+
+	std::size_t pos = str.find('.');
+	std::size_t f_pos = str.find('f');
+	int precision = ((std::string::npos == pos) ? 1 : str.size() - pos - 1);
+	precision = ((std::string::npos == f_pos) ? precision : precision - 1);
+	
 	std::cout << "float: ";
 	try
 	{
 		float f = static_cast<float>(std::stof(str));
-		std::cout << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+		int f_precision = (std::numeric_limits<float>::max_digits10 < precision ? std::numeric_limits<float>::max_digits10 : precision);
+		std::cout << std::fixed << std::setprecision(f_precision) << f << "f" << std::endl;
 	}
 	catch (std::exception & e)
 	{
@@ -62,7 +69,8 @@ void ScalarConverter::convert(std::string str)
 	try
 	{
 		double d = static_cast<double>(std::stod(str));
-		std::cout << std::fixed << std::setprecision(1) << d << std::endl;
+		int d_precision = (std::numeric_limits<double>::max_digits10 < precision ? std::numeric_limits<double>::max_digits10 : precision);
+		std::cout << std::fixed << std::setprecision(d_precision) << d << std::endl;
 	}
 	catch (std::exception & e)
 	{
